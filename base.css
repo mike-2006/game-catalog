@@ -1,0 +1,228 @@
+/* БАЗА */
+:root {
+  --glass-bg: rgba(15, 15, 30, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --accent-1: #ff3b5c;
+  --accent-2: #ff8243;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1b1b2f 0, #050509 60%, #000 100%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 24px 0 40px;
+}
+
+.hero {
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  color: rgba(245, 245, 245, 0.7);
+}
+
+/* УТИЛИТЫ ДЛЯ ПОВТОРЯЮЩИХСЯ СТИЛЕЙ */
+
+/* Общий стиль для "панелей" / карточек */
+.u-panel {
+  background: radial-gradient(circle at top left, #1b1b2f 0, #050509 55%, #000 100%);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
+}
+
+/* Капс + трекинг */
+.upper-nav {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Скругление "пилюля" */
+.rounded-full {
+  border-radius: 999px;
+}
+
+/* Общие заголовки */
+.title-lg {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.title-md {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title-sm {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+/* ===========================
+   СТИЛЬНАЯ СВЕТЛАЯ ТЕМА
+   =========================== */
+
+body.light {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f1f4ff 40%,
+    #e8ecff 100%
+  );
+  color: #111;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Хэдер */
+body.light .header {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+body.light .header a {
+  color: #111;
+}
+
+body.light .header a:hover {
+  border-bottom-color: #ff3b5c;
+}
+
+/* Футер */
+body.light .footer {
+  background: rgba(255,255,255,0.75);
+  color: #333;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* СТИЛЬНЫЕ СВЕТЛЫЕ КАРТОЧКИ */
+body.light .u-panel,
+body.light .game-card,
+body.light .glass-card,
+body.light .top-item {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  color: #111;
+  transition: 0.3s ease;
+}
+
+/* Ховер светлых карточек */
+body.light .game-card:hover,
+body.light .glass-card:hover,
+body.light .top-item:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+
+/* Текст */
+body.light .title-lg,
+body.light .title-md,
+body.light .title-sm,
+body.light h3,
+body.light p {
+  color: #111;
+}
+
+/* Градиентные бейджи остаются, но адаптируем */
+body.light .badge {
+  background: rgba(255, 255, 255, 0.9);
+  color: #d7265e;
+  border-color: rgba(0,0,0,0.2);
+}
+
+/* Теги */
+body.light .tag {
+  border-color: rgba(0,0,0,0.25);
+  color: #444;
+}
+
+/* Поиск */
+body.light .search-input {
+  background: rgba(255,255,255,0.8);
+  color: #000;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+body.light .search-input::placeholder {
+  color: #555;
+}
+
+/* Стеклянные карточки (glass-card) дополнительно */
+body.light .glass-card::before,
+body.light .glass-card::after {
+  opacity: 0.35; /* приглушённый градиент */
+  filter: blur(4px);
+}
+
+body.light .glass-card p {
+  color: #333;
+}
+
+/* Кнопки */
+body.light .btn-primary {
+  box-shadow: 0 0 10px rgba(255, 59, 92, 0.4);
+}
+
+body.light .btn-ghost {
+  border-color: rgba(0,0,0,0.3);
+  color: #111;
+}
+
+/* Топ-страница номера + текст */
+body.light .top-number {
+  color: #ff3b5c;
+}
+
+
+
+/* адаптив правки общих заголовков */
+@media (max-width: 720px) {
+  .title-lg {
+    font-size: 22px;
+  }
+}

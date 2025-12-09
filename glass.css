@@ -1,0 +1,111 @@
+/* Контейнер с карточками */
+.glass-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* Одна карточка */
+.glass-card {
+  position: relative;
+  width: min(320px, 100%);
+  padding: 20px 18px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #f5f5f5;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+}
+
+/* Заголовок + текст */
+.glass-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.glass-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* Градиентные элементы сзади */
+.glass-card::before,
+.glass-card::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* Верхний градиентный квадрат */
+.glass-card::before {
+  top: -30px;
+  right: -30px;
+}
+
+/* Нижний градиентный квадрат */
+.glass-card::after {
+  bottom: -30px;
+  left: -30px;
+}
+
+/* Анимации для квадратиков */
+@keyframes floatTop {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(-10px, 6px) rotate(6deg) scale(1.05);
+  }
+  50% {
+    transform: translate(6px, 10px) rotate(-4deg) scale(1.1);
+  }
+  75% {
+    transform: translate(12px, -4px) rotate(8deg) scale(1.05);
+  }
+  100% {
+    transform: translate(-8px, -10px) rotate(-6deg) scale(1);
+  }
+}
+
+@keyframes floatBottom {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(8px, -8px) rotate(-5deg) scale(1.07);
+  }
+  50% {
+    transform: translate(-10px, -4px) rotate(4deg) scale(1.1);
+  }
+  75% {
+    transform: translate(-6px, 10px) rotate(-7deg) scale(1.05);
+  }
+  100% {
+    transform: translate(10px, 6px) rotate(3deg) scale(1);
+  }
+}
+
+/* При наведении запускаем плавную анимацию */
+.glass-card:hover::before {
+  animation: floatTop 4s infinite ease-in-out;
+}
+
+.glass-card:hover::after {
+  animation: floatBottom 4s infinite ease-in-out;
+}

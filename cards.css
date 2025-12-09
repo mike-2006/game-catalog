@@ -1,0 +1,209 @@
+/* GRID С ИГРАМИ */
+.section-title {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title span {
+  font-size: 12px;
+  color: rgba(245, 245, 245, 0.6);
+}
+
+.games-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.game-card {
+  flex: 1 1 250px;
+  max-width: 280px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+}
+
+/* всё содержимое карты над псевдоэлементом */
+.game-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* светящиеся лучи по границе карты */
+.game-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 59, 92, 0.7),
+    rgba(255, 130, 67, 0.7),
+    rgba(255, 59, 92, 0.7)
+  );
+  opacity: 0;
+  filter: blur(2px);
+  transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+  z-index: 0;
+}
+
+/* включаем свечение и анимацию только на активной карточке */
+.games-grid:hover .game-card:hover::before {
+  opacity: 1;
+  filter: blur(3px);        /* чуть мягче свет */
+  transform: scale(1.02);   /* лёгкая пульсация без движения */
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 59, 92, 0.7);
+  box-shadow: 0 20px 40px rgba(255, 59, 92, 0.3);
+}
+
+/* Когда мышь над областью карточек */
+.games-grid:hover .game-card {
+  transform: scale(0.95);
+}
+
+/* Карточка под мышью — в фокусе */
+.games-grid:hover .game-card:hover {
+  filter: blur(0) brightness(1);
+  transform: scale(1.05) translateY(-4px);
+  z-index: 1;
+}
+
+.game-cover {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.badge {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 4px 10px;
+  font-size: 11px;
+  background: rgba(5, 5, 10, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.badge-hot {
+  border-color: #ff3b5c;
+  color: #ff6b81;
+}
+
+.game-info {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.game-desc {
+  font-size: 13px;
+  color: rgba(245, 245, 245, 0.7);
+  line-height: 1.4;
+  min-height: 36px;
+}
+
+.game-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 11px;
+}
+
+.price-block {
+  text-align: right;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.old-price {
+  font-size: 11px;
+  text-decoration: line-through;
+  color: rgba(245, 245, 245, 0.6);
+}
+
+.discount {
+  font-size: 11px;
+  color: #ff6b81;
+  font-weight: 600;
+}
+
+.card-footer {
+  padding: 10px 14px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.btn-primary {
+  padding: 7px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  background: linear-gradient(120deg, #ff3b5c 0, #ff8243 50%, #ff3b5c 100%);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(255, 59, 92, 0.7);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.rating {
+  opacity: 0.8;
+}
+
+/* (закомментированный блок фильтров, как в исходнике)
+.filters {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.filter-pill {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(10, 10, 20, 0.9);
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.filter-pill.active {
+    border-color: #ff3b5c;
+    background: radial-gradient(circle at 0 0, #ff3b5c 0, #800020 60%, #101020 100%);
+    box-shadow: 0 0 14px rgba(255, 59, 92, 0.6);
+    opacity: 1;
+}
+*/

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Игровой каталог</title>
+  <link rel="icon" type="image/png" href="imgs/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="glass.css">
+  <link rel="stylesheet" href="cards.css">
+  <link rel="stylesheet" href="footer.css">
+  <script src="script.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo upper-nav">
+      <div class="logo-mark"><a href = "index.html">G</a></div>
+      <a href = "index.html">GAME HUB</a>
+    </div>
+    <input type="checkbox" id="burger-toggle" class="burger-checkbox">
+    <label for="burger-toggle" class="burger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav class="nav upper-nav">
+      <a href="katalog.html">Каталог</a>
+      <a href="discounts.html">Скидки</a>
+      <a href="top.html">Топ</a>
+    </nav>
+    <div class="header-actions">
+      <input type="text" class="search-input rounded-full" placeholder="Поиск игр">
+      <a href="auth.html" class="btn-ghost rounded-full upper-nav">Войти</a>
+      <button id="theme-btn" class="btn-ghost rounded-full upper-nav">🌙</button>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+    <!-- ХЕРО-БЛОК -->
+    <section class="hero">
+      <h1 class="hero-title title-lg">Каталог игр</h1>
+      <p class="hero-subtitle">
+        Подборка игр в одном месте: шутеры, RPG, инди и всё, во что ты будешь прокрастинировать.
+      </p>
+      <!-- <div class="filters">
+        <button class="filter-pill active">Все</button>
+        <button class="filter-pill">RPG</button>
+        <button class="filter-pill">Action</button>
+        <button class="filter-pill">Shooter</button>
+        <button class="filter-pill">Indie</button>
+      </div> -->
+    </section>
+    <section class="glass-section">
+        <div class="glass-card">
+          <h3>Турнир по CS2</h3>
+          <p>Командные матчи, подбор по рангу, призы в скинах и внутриигровой валюте.</p>
+        </div>
+
+        <div class="glass-card">
+          <h3>Обновление Valorant</h3>
+          <p>Новый агент, карта и патч балансa. Лучшее время вернуться в игру.</p>
+        </div>
+
+        <div class="glass-card">
+          <h3>Скидки на классики</h3>
+          <p>GTA 5, Half-Life и другие игры со скидками всю неделю.</p>
+        </div>
+      </section>
+    <!-- СЕТКА ИГР -->
+    <section>
+      <div class="section-title title-md">
+        <div>Подборка недели</div>
+        <span class="upper-nav">8 игр</span>
+      </div>
+
+      <div class="games-grid">
+        <!-- КАРТОЧКА 1 -->
+        <article class="game-card u-panel">
+          <div class="game-cover">
+            <img class="img-cover" class="img-cover" src="imgs/cs2.webp" alt="Counter-Strike 2">
+            <div class="badge badge-hot rounded-full upper-nav">Хит</div>
+          </div>
+          <div class="game-info">
+            <h3 class="title-sm">Counter-Strike 2</h3>
+            <p class="game-desc">Новый движок Source 2 и обновлённая графика.</p>
+            <div class="game-meta">
+              <div class="tags">
+                <span class="tag rounded-full upper-nav">Shooter</span>
+              </div>
+              <div class="price-block">
+                <div class="price">1 199 ₽</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="rating">★ 4.9</div>
+            <a href="https://www.counter-strike.net/cs2" target="_blank"
+              class="btn-primary rounded-full upper-nav">
+              Подробнее
+            </a>
+
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 2 -->
+        <article class="game-card u-panel">
+          <div class="game-cover">
+            <img class="img-cover" src="imgs/valorant.webp" alt="Valorant">
+            <div class="badge badge-hot rounded-full upper-nav">Хит</div>
+          </div>
+          <div class="game-info">
+            <h3 class="title-sm">Valorant</h3>
+            <p class="game-desc">Шутер со способностями, почти как CS2, но в чем-то лучше, в чем-то хуже.</p>
+            <div class="game-meta">
+              <div class="tags">
+                <span class="tag rounded-full upper-nav">Shooter</span>
+              </div>
+              <div class="price-block">
+                <div class="price">Бесплатно</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="rating">★ 5.0</div>
+            <a href="https://playvalorant.com/" target="_blank"
+              class="btn-primary rounded-full upper-nav">
+              Подробнее
+            </a>
+
+          </div>
+        </article>
+
+        <!-- КАРТОЧКА 3 -->
+        <article class="game-card u-panel">
+          <div class="game-cover">
+            <img class="img-cover" src="imgs/dota2.jpeg" alt="Dota 2">
+            <div class="badge badge-hot rounded-full upper-nav">Хит</div>
+          </div>
+          <div class="game-info">
+            <h3 class="title-sm">Dota 2</h3>
+            <p class="game-desc">MOBA игра с 125+ персонажами, поговаривают сложнее шахмат.</p>
+            <div class="game-meta">
+              <div class="tags">
+                <span class="tag rounded-full upper-nav">MOBA</span>
+              </div>
+              <div class="price-block">
+                <div class="price">Бесплатно</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="rating">★ 4.7</div>
+            <a href="https://www.dota2.com/home" target="_blank"
+              class="btn-primary rounded-full upper-nav">
+              Подробнее
+            </a>
+          </div>
+        </article>
+
+        <article class="game-card u-panel">
+          <div class="game-cover">
+            <img class="img-cover" src="imgs/gta5.webp" alt="GTA5">
+          </div>
+          <div class="game-info">
+            <h3 class="title-sm">GTA 5</h3>
+            <p class="game-desc">Огромный открытый мир Лос-Сантоса.</p>
+            <div class="game-meta">
+              <div class="tags">
+                <span class="tag rounded-full upper-nav">Action-Adventure</span>
+              </div>
+              <div class="price-block">
+                <div class="price">1999 ₽</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="rating">★ 4.7</div>
+            <a href="https://www.rockstargames.com/gta-v" target="_blank"
+              class="btn-primary rounded-full upper-nav">
+              Подробнее
+            </a>
+
+          </div>
+        </article>
+
+        <article class="game-card u-panel">
+          <div class="game-cover">
+            <img class="img-cover" src="imgs/minecraft.webp" alt="Minecraft">
+          </div>
+          <div class="game-info">
+            <h3 class="title-sm">Minecraft</h3>
+            <p class="game-desc">Строй мир из блоков и выживай.</p>
+            <div class="game-meta">
+              <div class="tags">
+                <span class="tag rounded-full upper-nav">Co-op</span>
+              </div>
+              <div class="price-block">
+                <div class="price">Бесплатно</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="rating">★ 4.8</div>
+            <a href="https://www.minecraft.net/" target="_blank"
+              class="btn-primary rounded-full upper-nav">
+              Подробнее
+            </a>
+
+          </div>
+        </article>
+
+        <article class="game-card u-panel">
+          <div class="game-cover">
+            <img class="img-cover" src="imgs/HF.webp" alt="Half-Life">
+          </div>
+          <div class="game-info">
+            <h3 class="title-sm">Half-Life</h3>
+            <p class="game-desc">Прекрасный шутер чтобы провести вечер.</p>
+            <div class="game-meta">
+              <div class="tags">
+                <span class="tag rounded-full upper-nav">Shooter</span>
+              </div>
+              <div class="price-block">
+                <div class="price">295 ₽</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="rating">★ 4.6</div>
+            <a href="https://www.half-life.com/en/halflife" target="_blank"
+              class="btn-primary rounded-full upper-nav">
+              Подробнее
+            </a>
+
+          </div>
+        </article>
+        <!-- bb -->
+        <article class="game-card u-panel">
+          <div class="game-cover">
+            <img class="img-cover" src="imgs/ark.webp" alt="ark">
+          </div>
+          <div class="game-info">
+            <h3 class="title-sm">ARK: Survival Evolved</h3>
+            <p class="game-desc">Погрузитесь в мир динозавров.</p>
+            <div class="game-meta">
+              <div class="tags">
+                <span class="tag rounded-full upper-nav">Adventure</span>
+              </div>
+              <div class="price-block">
+                <div class="price">550 ₽</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="rating">★ 5.0</div>
+            <a href="https://playark.com/" target="_blank"
+              class="btn-primary rounded-full upper-nav">
+              Подробнее
+            </a>
+          </div>
+        </article>
+
+        <article class="game-card u-panel">
+          <div class="game-cover">
+            <img class="img-cover" src="imgs/rust.webp" alt="Rust">
+          </div>
+          <div class="game-info">
+            <h3 class="title-sm">Rust</h3>
+            <p class="game-desc">Исследуй, строй, выживай.</p>
+            <div class="game-meta">
+              <div class="tags">
+                <span class="tag rounded-full upper-nav">Adventure</span>
+              </div>
+              <div class="price-block">
+                <div class="price">1399 ₽</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="rating">★ 4.0</div>
+            <a href="https://rust.facepunch.com/" target="_blank"
+              class="btn-primary rounded-full upper-nav">
+              Подробнее
+            </a>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2025, Студент Бурлак М.А. Все права зачем-то защищены.</div>
+
+    <div class="footer-socials">
+      <a href="https://vk.com/club234456651" class="social-btn social-vk">VK</a>
+      <a href="https://t.me/+V8GKDuEJNPAxNDM6" class="social-btn social-tg">TG</a>
+      <a href="https://steamcommunity.com/profiles/76561198967569407/" class="social-btn social-steam">STEAM</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

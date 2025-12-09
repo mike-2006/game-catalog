@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Игровой каталог</title>
+  <link rel="icon" type="image/png" href="imgs/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="mosaic.css">
+  <link rel="stylesheet" href="footer.css">
+  <script src="script.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo upper-nav">
+      <div class="logo-mark"><a href = "index.html">G</a></div>
+      <a href = "index.html">GAME HUB</a>
+    </div>
+    <input type="checkbox" id="burger-toggle" class="burger-checkbox">
+    <label for="burger-toggle" class="burger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav class="nav upper-nav">
+      <a href="katalog.html">Каталог</a>
+      <a href="discounts.html">Скидки</a>
+      <a href="top.html">Топ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="auth.html" class="btn-ghost rounded-full upper-nav">Войти</a>
+      <button id="theme-btn" class="btn-ghost rounded-full upper-nav">🌙</button>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <section class="games-mosaic">
+  <div class="container">
+    <h2 class="title-md" style="margin-bottom: 12px;">Галерея игр</h2>
+
+    <div class="mosaic-grid">
+      <figure class="mosaic-item mosaic-item--wide">
+        <a href="https://www.counter-strike.net/cs2" target="_blank"><img src="imgs/cs2.webp" alt="Counter-Strike 2"></a>
+        <figcaption>Counter-Strike 2</figcaption>
+      </figure>
+      
+      <figure class="mosaic-item">
+        <a href="https://www.minecraft.net/" target="_blank"><img src="imgs/minecraft.webp" alt="Minecraft"></a>
+        <figcaption>Minecraft</figcaption>
+      </figure>
+
+      <figure class="mosaic-item mosaic-item--tall">
+        <a href="https://www.dota2.com/" target="_blank"><img src="imgs/dota2.jpeg" alt="Dota 2"></a>
+        <figcaption>Dota 2</figcaption>
+      </figure>
+
+      <figure class="mosaic-item">
+        <a href="https://www.rockstargames.com/gta-v" target="_blank"><img src="imgs/gta5.webp" alt="GTA 5"></a>
+        <figcaption>GTA 5</figcaption>
+      </figure>
+
+      <figure class="mosaic-item mosaic-item--wide">
+        <a href="https://playvalorant.com/ru-ru/" target="_blank"><img src="imgs/valorant.webp" alt="Valorant"></a>
+        <figcaption>Valorant</figcaption>
+      </figure>
+      
+      <figure class="mosaic-item mosaic-item--wide">
+        <a href="https://www.half-life.com/ru/home" target="_blank"><img src="imgs/hf.webp" alt="Half-Life"></a>
+        <figcaption>Half-Life</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2025, Студент Бурлак М.А. Все права зачем-то защищены.</div>
+
+    <div class="footer-socials">
+      <a href="https://vk.com/club234456651" class="social-btn social-vk">VK</a>
+      <a href="https://t.me/+V8GKDuEJNPAxNDM6" class="social-btn social-tg">TG</a>
+      <a href="https://steamcommunity.com/profiles/76561198967569407/" class="social-btn social-steam">STEAM</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

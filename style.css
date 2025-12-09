@@ -1,0 +1,920 @@
+БАЗА
+:root {
+  --glass-bg: rgba(15, 15, 30, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --accent-1: #ff3b5c;
+  --accent-2: #ff8243;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #1b1b2f 0, #050509 60%, #000 100%);
+    color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* HEADER */
+.header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(5, 5, 10, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    gap: 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.logo-mark {
+    width: 26px;
+    height: 26px;
+    border-radius: 10px;
+    border: 2px solid #ff3b5c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background: radial-gradient(circle at 30% 0, #ff3b5c 0, #800020 55%, #1a1a2e 100%);
+    box-shadow: 0 0 12px rgba(255, 59, 92, 0.7);
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.nav a {
+    opacity: 0.8;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav a:hover {
+    opacity: 1;
+    border-bottom-color: #ff3b5c;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(10, 10, 20, 0.9);
+    color: #f5f5f5;
+    font-size: 14px;
+    min-width: 170px;
+}
+
+.search-input::placeholder {
+    color: rgba(245, 245, 245, 0.5);
+}
+
+.btn-ghost {
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    color: #f5f5f5;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 24px 0 40px;
+}
+
+.hero {
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    margin-bottom: 8px;
+}
+
+.hero-subtitle {
+    font-size: 14px;
+    color: rgba(245, 245, 245, 0.7);
+}
+
+/* Контейнер с карточками */ 
+.glass-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* Одна карточка */
+.glass-card {
+  position: relative;
+  width: min(320px, 100%);
+  padding: 20px 18px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #f5f5f5;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+}
+
+/* Заголовок + текст */
+.glass-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.glass-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* Градиентные элементы сзади */
+.glass-card::before,
+.glass-card::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* Верхний градиентный квадрат */
+.glass-card::before {
+  top: -30px;
+  right: -30px;
+}
+
+/* Нижний градиентный квадрат */
+.glass-card::after {
+  bottom: -30px;
+  left: -30px;
+}
+
+/* Анимации для квадратиков */
+@keyframes floatTop {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(-10px, 6px) rotate(6deg) scale(1.05);
+  }
+  50% {
+    transform: translate(6px, 10px) rotate(-4deg) scale(1.1);
+  }
+  75% {
+    transform: translate(12px, -4px) rotate(8deg) scale(1.05);
+  }
+  100% {
+    transform: translate(-8px, -10px) rotate(-6deg) scale(1);
+  }
+}
+
+@keyframes floatBottom {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(8px, -8px) rotate(-5deg) scale(1.07);
+  }
+  50% {
+    transform: translate(-10px, -4px) rotate(4deg) scale(1.1);
+  }
+  75% {
+    transform: translate(-6px, 10px) rotate(-7deg) scale(1.05);
+  }
+  100% {
+    transform: translate(10px, 6px) rotate(3deg) scale(1);
+  }
+}
+
+/* При наведении запускаем плавную анимацию */
+.glass-card:hover::before {
+  animation: floatTop 4s infinite ease-in-out;
+}
+
+.glass-card:hover::after {
+  animation: floatBottom 4s infinite ease-in-out;
+}
+
+
+
+/* .filters {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.filter-pill {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(10, 10, 20, 0.9);
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.filter-pill.active {
+    border-color: #ff3b5c;
+    background: radial-gradient(circle at 0 0, #ff3b5c 0, #800020 60%, #101020 100%);
+    box-shadow: 0 0 14px rgba(255, 59, 92, 0.6);
+    opacity: 1;
+} */
+
+/* GRID С ИГРАМИ */
+.section-title {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-title span {
+    font-size: 12px;
+    color: rgba(245, 245, 245, 0.6);
+}
+
+.games-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+
+.game-card {
+    flex: 1 1 250px;
+    max-width: 280px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+}
+
+/* всё содержимое карты над псевдоэлементом */
+.game-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* светящиеся лучи по границе карты */
+.game-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 59, 92, 0.7),
+        rgba(255, 130, 67, 0.7),
+        rgba(255, 59, 92, 0.7)
+    );
+    opacity: 0;
+    filter: blur(2px);
+    transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+    z-index: 0;
+}
+
+/* включаем свечение и анимацию только на активной карточке */
+.games-grid:hover .game-card:hover::before {
+    opacity: 1;
+    filter: blur(3px);        /* чуть мягче свет */
+    transform: scale(1.02);   /* лёгкая пульсация без движения */
+}
+
+
+.game-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 59, 92, 0.7);
+    box-shadow: 0 20px 40px rgba(255, 59, 92, 0.3);
+}
+/* Когда мышь над областью карточек */
+.games-grid:hover .game-card {
+    transform: scale(0.95);
+}
+
+/* Карточка под мышью — в фокусе */
+.games-grid:hover .game-card:hover {
+    filter: blur(0) brightness(1);
+    transform: scale(1.05) translateY(-4px);
+    z-index: 1;
+}
+
+
+.game-cover {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+
+.badge {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 4px 10px;
+    font-size: 11px;
+    background: rgba(5, 5, 10, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.badge-hot {
+    border-color: #ff3b5c;
+    color: #ff6b81;
+}
+
+.game-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+/* .game-title {
+} */
+
+.game-desc {
+    font-size: 13px;
+    color: rgba(245, 245, 245, 0.7);
+    line-height: 1.4;
+    min-height: 36px;
+}
+
+.game-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 3px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 11px;
+}
+.price-block {
+    text-align: right;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* .old-price {
+    font-size: 11px;
+    text-decoration: line-through;
+    color: rgba(245, 245, 245, 0.6);
+} */
+
+/* .discount {
+    font-size: 11px;
+    color: #ff6b81;
+    font-weight: 600;
+} */
+
+.card-footer {
+    padding: 10px 14px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.btn-primary {
+    padding: 7px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    background: linear-gradient(120deg, #ff3b5c 0, #ff8243 50%, #ff3b5c 100%);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(255, 59, 92, 0.7);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.rating {
+    opacity: 0.8;
+}
+
+/* FOOTER */
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: #050509;
+    padding: 16px 0;
+    font-size: 12px;
+    color: rgba(245, 245, 245, 0.6);
+}
+
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+/* БУРГЕР */
+.burger-checkbox {
+    display: none;
+}
+
+.burger-btn {
+    width: 32px;
+    height: 22px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.burger-btn span {
+    display: block;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+/* Мобильная версия(адаптив) */
+@media (max-width: 720px) {
+    .header-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .title-lg {
+        font-size: 22px;
+    }
+
+    .burger-btn {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+        background: rgba(5, 5, 10, 0.95);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .burger-checkbox:checked ~ .nav {
+        display: flex;
+    }
+}
+
+/* УТИЛИТЫ ДЛЯ ПОВТОРЯЮЩИХСЯ СТИЛЕЙ */
+
+/* Общий стиль для "панелей" / карточек */
+.u-panel {
+    background: radial-gradient(circle at top left, #1b1b2f 0, #050509 55%, #000 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
+}
+
+/* Капс + трекинг */
+.upper-nav {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Скругление "пилюля" */
+.rounded-full {
+    border-radius: 999px;
+}
+
+/* Общие заголовки */
+.title-lg {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.title-md {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.title-sm {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 10px;
+}
+
+/* Базовая кнопка соцсетей */
+.social-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(245, 245, 245, 0.8);
+    background: transparent;
+    z-index: 0;
+    cursor: pointer;              /* обязательное условие */
+}
+
+/* Градиент, который заезжает сверху */
+.social-btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -100%;                   /* спрятан сверху */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff3b5c, #ff8243);
+    z-index: -1;
+    transition: top 0.3s ease;
+}
+
+/* Ховер: градиент опускается и перекрывает фон */
+.social-btn:hover::before {
+    top: 0;                       /* закрывает фон целиком */
+}
+
+/* Дополнительный эффект при наведении */
+.social-btn:hover {
+    color: #ffffff;
+    border-color: transparent;
+}
+
+/* Можно слегка различать соцсети по цвету, если хочешь */
+
+.social-vk::before {
+    background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+}
+
+.social-tg::before {
+    background: linear-gradient(135deg, #38bdf8, #0f172a);
+}
+
+.social-steam::before {
+    background: linear-gradient(135deg, #6366f1, #020617);
+}  
+
+/* Страница авторизации / регистрации */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Стеклянная карточка регистрации */
+.register-card {
+    position: relative;
+    width: min(420px, 100%);
+    padding: 24px 22px 26px;
+    border-radius: 20px;
+    background: rgba(15, 15, 30, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Псевдоэлементы: большие градиентные пятна сзади */
+.register-card::before,
+.register-card::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border-radius: 40%;
+    opacity: 0.45;
+    z-index: -2;
+    filter: blur(2px);
+    background: radial-gradient(circle at 20% 0, #ff3b5c, transparent 70%);
+    transform: translate(-20%, -20%);
+}
+
+.register-card::after {
+    right: -80px;
+    bottom: -60px;
+    left: auto;
+    top: auto;
+    background: radial-gradient(circle at 80% 100%, #ff8243, transparent 70%);
+    transform: translate(10%, 10%);
+}
+
+/* Заголовок и текст */
+.register-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.register-subtitle {
+    font-size: 13px;
+    color: rgba(245, 245, 245, 0.7);
+    margin-bottom: 18px;
+}
+
+/* Форма */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.reg-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.reg-field label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(245, 245, 245, 0.7);
+}
+
+.reg-field input {
+    padding: 9px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(5, 5, 15, 0.8);
+    color: #f5f5f5;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reg-field input:focus {
+    border-color: #ff3b5c;
+    box-shadow: 0 0 0 1px rgba(255, 59, 92, 0.5);
+}
+
+.reg-submit {
+    margin-top: 8px;
+    width: 100%;
+}
+
+/* Плавающие маленькие квадраты вокруг формы */
+.register-squares {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Базовый стиль квадратов + переменные */
+.reg-square {
+    --size: 18px;
+    --pos-x: 0;    /* базовая X-позиция в % от карточки */
+    --pos-y: 0;    /* базовая Y-позиция в % от карточки */
+    --delay: 0s;
+
+    position: absolute;
+    width: calc(12px + var(--size));
+    height: calc(12px + var(--size));
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ff3b5c, #ff8243);
+    opacity: 0.55;
+    filter: blur(0.3px);
+    animation: floatSquare 5s infinite ease-in-out;
+    animation-delay: var(--delay);
+    transform: translate(
+        calc(var(--pos-x) * 1%),
+        calc(var(--pos-y) * 1%)
+    );
+}
+
+/* Разные стартовые точки → ощущение “случайности” */
+.reg-square:nth-child(1) {
+    --size: 16px;
+    --pos-x: 5;
+    --pos-y: 0;
+    --delay: 0s;
+}
+
+.reg-square:nth-child(2) {
+    --size: 12px;
+    --pos-x: 75;
+    --pos-y: 20;
+    --delay: 1.5s;
+}
+
+.reg-square:nth-child(3) {
+    --size: 10px;
+    --pos-x: 15;
+    --pos-y: 80;
+    --delay: 3s;
+}
+
+/* Простая, но заметная анимация с calc() и transform */
+@keyframes floatSquare {
+    0% {
+        transform: translate(
+            calc(var(--pos-x) * 1%),
+            calc(var(--pos-y) * 1%)
+        ) scale(1) rotate(0deg);
+    }
+    33% {
+        transform: translate(
+            calc((var(--pos-x) + 18) * 1%),
+            calc((var(--pos-y) - 14) * 1%)
+        ) scale(1.12) rotate(10deg);
+    }
+    66% {
+        transform: translate(
+            calc((var(--pos-x) - 10) * 1%),
+            calc((var(--pos-y) + 12) * 1%)
+        ) scale(0.95) rotate(-8deg);
+    }
+    100% {
+        transform: translate(
+            calc(var(--pos-x) * 1%),
+            calc(var(--pos-y) * 1%)
+        ) scale(1) rotate(0deg);
+    }
+}
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 600px) {
+    .auth-page {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .register-card {
+        padding: 20px 18px 22px;
+    }
+
+    .register-title {
+        font-size: 20px;
+    }
+}
+
+/* МОЗАИКА С ИГРАМИ НА ГЛАВНОЙ */
+.games-mosaic {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.mosaic-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* адаптив */
+@media (max-width: 900px) {
+  .mosaic-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .mosaic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* элемент мозаики */
+.mosaic-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #050509;
+}
+
+.mosaic-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.mosaic-item--wide {
+  grid-column: span 2;
+}
+
+.mosaic-item--tall {
+  grid-row: span 2;
+}
+
+.mosaic-item figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.0)
+  );
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+/* hover-анимация */
+.mosaic-item:hover img {
+  transform: scale(1.05);
+}
+
+.mosaic-item:hover figcaption {
+  transform: translateY(0);
+}

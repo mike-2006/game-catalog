@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация</title>
+  <link rel="icon" type="image/png" href="imgs/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="footer.css">
+  <script src="script.js"></script>
+
+</head>
+<body>
+
+  <!-- ХЕДЕР КАК НА ГЛАВНОЙ -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo upper-nav">
+        <div class="logo-mark"><a href = "index.html">G</a></div>
+        <a href = "index.html">GAME HUB</a>
+      </div>
+      <nav class="nav upper-nav">
+        <a href="katalog.html">Каталог</a>
+        <a href="discounts.html">Скидки</a>
+        <a href="top.html">Топ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="auth.html" class="btn-ghost rounded-full upper-nav">Войти</a>
+        <button id="theme-btn" class="btn-ghost rounded-full upper-nav">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ: ФОРМА РЕГИСТРАЦИИ -->
+  <main class="main">
+    <div class="container auth-page">
+      <div class="register-card">
+        <!-- Плавающие квадраты -->
+        <div class="register-squares">
+          <div class="reg-square"></div>
+          <div class="reg-square"></div>
+          <div class="reg-square"></div>
+        </div>
+
+        <h1 class="register-title">Регистрация</h1>
+        <p class="register-subtitle">
+          Создай аккаунт, чтобы вовремя узнавать про турниры, скидки и обновления игр.
+        </p>
+
+        <form class="register-form">
+          <div class="reg-field">
+            <label for="reg-username">Никнейм</label>
+            <input id="reg-username" type="text" placeholder="Игровой ник" required>
+          </div>
+
+          <div class="reg-field">
+            <label for="reg-email">E-mail</label>
+            <input id="reg-email" type="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="reg-field">
+            <label for="reg-password">Пароль</label>
+            <input id="reg-password" type="password" placeholder="••••••••" required>
+          </div>
+
+          <div class="reg-field">
+            <label for="reg-password2">Повтор пароля</label>
+            <input id="reg-password2" type="password" placeholder="••••••••" required>
+          </div>
+
+          <button type="submit" class="btn-primary rounded-full upper-nav reg-submit">
+            Зарегистрироваться
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- ФУТЕР КАК НА ГЛАВНОЙ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2025, Студент Бурлак М.А. Все права зачем-то защищены.</div>
+
+    <div class="footer-socials">
+      <a href="https://vk.com/club234456651" class="social-btn social-vk">VK</a>
+      <a href="https://t.me/+V8GKDuEJNPAxNDM6" class="social-btn social-tg">TG</a>
+      <a href="https://steamcommunity.com/profiles/76561198967569407/" class="social-btn social-steam">STEAM</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

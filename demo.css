@@ -1,0 +1,32 @@
+.auth-container {
+    max-width: 380px;
+    margin: 60px auto;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 16px;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background: #ff4747;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}

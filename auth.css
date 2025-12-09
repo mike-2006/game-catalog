@@ -1,0 +1,205 @@
+/* Страница авторизации / регистрации */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Стеклянная карточка регистрации */
+.register-card {
+  position: relative;
+  width: min(420px, 100%);
+  padding: 24px 22px 26px;
+  border-radius: 20px;
+  background: rgba(15, 15, 30, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Псевдоэлементы: большие градиентные пятна сзади */
+.register-card::before,
+.register-card::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 40%;
+  opacity: 0.45;
+  z-index: -2;
+  filter: blur(2px);
+  background: radial-gradient(circle at 20% 0, #ff3b5c, transparent 70%);
+  transform: translate(-20%, -20%);
+}
+
+.register-card::after {
+  right: -80px;
+  bottom: -60px;
+  left: auto;
+  top: auto;
+  background: radial-gradient(circle at 80% 100%, #ff8243, transparent 70%);
+  transform: translate(10%, 10%);
+}
+
+/* Заголовок и текст */
+.register-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.register-subtitle {
+  font-size: 13px;
+  color: rgba(245, 245, 245, 0.7);
+  margin-bottom: 18px;
+}
+
+/* Форма */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reg-field label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(245, 245, 245, 0.7);
+}
+
+.reg-field input {
+  padding: 9px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(5, 5, 15, 0.8);
+  color: #f5f5f5;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reg-field input:focus {
+  border-color: #ff3b5c;
+  box-shadow: 0 0 0 1px rgba(255, 59, 92, 0.5);
+}
+
+.reg-submit {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.btn-primary {
+  padding: 7px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  background: linear-gradient(120deg, #ff3b5c 0, #ff8243 50%, #ff3b5c 100%);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(255, 59, 92, 0.7);
+}
+
+/* Плавающие маленькие квадраты вокруг формы */
+.register-squares {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Базовый стиль квадратов + переменные */
+.reg-square {
+  --size: 18px;
+  --pos-x: 0;
+  --pos-y: 0;
+  --delay: 0s;
+
+  position: absolute;
+  width: calc(12px + var(--size));
+  height: calc(12px + var(--size));
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff3b5c, #ff8243);
+  opacity: 0.55;
+  filter: blur(0.3px);
+  animation: floatSquare 5s infinite ease-in-out;
+  animation-delay: var(--delay);
+  transform: translate(
+    calc(var(--pos-x) * 1%),
+    calc(var(--pos-y) * 1%)
+  );
+}
+
+/* Разные стартовые точки → ощущение “случайности” */
+.reg-square:nth-child(1) {
+  --size: 16px;
+  --pos-x: 5;
+  --pos-y: 0;
+  --delay: 0s;
+}
+
+.reg-square:nth-child(2) {
+  --size: 12px;
+  --pos-x: 75;
+  --pos-y: 20;
+  --delay: 1.5s;
+}
+
+.reg-square:nth-child(3) {
+  --size: 10px;
+  --pos-x: 15;
+  --pos-y: 80;
+  --delay: 3s;
+}
+
+/* Простая, но заметная анимация */
+@keyframes floatSquare {
+  0% {
+    transform: translate(
+      calc(var(--pos-x) * 1%),
+      calc(var(--pos-y) * 1%)
+    ) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(
+      calc((var(--pos-x) + 18) * 1%),
+      calc((var(--pos-y) - 14) * 1%)
+    ) scale(1.12) rotate(10deg);
+  }
+  66% {
+    transform: translate(
+      calc((var(--pos-x) - 10) * 1%),
+      calc((var(--pos-y) + 12) * 1%)
+    ) scale(0.95) rotate(-8deg);
+  }
+  100% {
+    transform: translate(
+      calc(var(--pos-x) * 1%),
+      calc(var(--pos-y) * 1%)
+    ) scale(1) rotate(0deg);
+  }
+}
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 600px) {
+  .auth-page {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .register-card {
+    padding: 20px 18px 22px;
+  }
+
+  .register-title {
+    font-size: 20px;
+  }
+}
